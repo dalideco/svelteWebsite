@@ -1,0 +1,31 @@
+:root{
+	--super-dark: #1b1d1f;
+	--dark: #4a4e69;
+	--normal : #9a8c98;
+	--light: #c9ada7;
+	--super-light: #f2e9e4;
+}
+
+html{
+	font-size: 20px; 
+}
+
+* {
+	margin: 0; 
+	padding: 0 ; 
+	box-sizing: border-box; 
+}
+body{
+	font-family: sans-serif;
+	line-height: 1.6rem; 
+	
+}
+a{
+	color: inherit; 
+	text-decoration: none;
+}
+.contained{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto; 
+}
