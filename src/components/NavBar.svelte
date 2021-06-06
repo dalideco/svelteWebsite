@@ -1,12 +1,18 @@
 <script>
     let navClass="";
-
+    let navBlur="";
+    let navBlurBorder="";
     window.onscroll=()=>{
         navClass=window.pageYOffset? "scrolled":"";
+        navBlur=window.pageYOffset? "blur":"";
+        navBlurBorder=window.pageYOffset? "blur-border":"";
     }
 </script>
 
 <nav class={navClass}>
+    <div class={navBlurBorder}>
+    <div class={navBlur}></div>
+    </div>
     <div class="contained navbar">
         <h1>Logo</h1>
         <ul>
@@ -22,9 +28,24 @@
 <style>
     .scrolled{
         padding: 15px;
-        background: var(--light);
+        position: fixed;
+        z-index:1;
+    }
+    .blur-border{
+        position: absolute;
+        top:0px;
+        bottom:0px;
+        right:0px;
+        left:0px;
+    }
+    .blur{
+        width:100%;
+        height:100%;
+        background-color: rgba(255, 255, 255, .15);
+        backdrop-filter: blur(5px);
     }
     nav{
+        
         transition: padding .5s ease, background .5s ease;
         padding:20px 0; 
         color: var(--super-light);
@@ -35,8 +56,11 @@
     }
     
     .navbar{
+        position: relative;
+        z-index:20;
         display: flex;
         justify-content: space-between;
+        
     }
     .navbar > ul{
         display:flex; 

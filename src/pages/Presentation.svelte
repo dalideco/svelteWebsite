@@ -11,7 +11,11 @@
 <style>
     .presentation{
         height: 100vh; 
-        background: var(--super-dark);
+        z-index:0;
+        
+        background-image: url('back.jpg');
+        background-size: cover;
+        background-position: right;
         color: var(--super-light);
         display: flex;
         align-items: center;
