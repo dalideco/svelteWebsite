@@ -1,18 +1,16 @@
 <script>
     let navClass="";
-    let navBlur="";
-    let navBlurBorder="";
-    window.onscroll=()=>{
-        navClass=window.pageYOffset? "scrolled":"";
-        navBlur=window.pageYOffset? "blur":"";
-        navBlurBorder=window.pageYOffset? "blur-border":"";
+
+    const changeOnScroll = ()=>{
+        navClass=(window.pageYOffset)? "scrolled":"";
+        if(window.pageYOffset>250) document.removeEventListener('scroll',changeOnScroll);
     }
+
+    document.addEventListener('scroll', changeOnScroll);
+
 </script>
 
 <nav class={navClass}>
-    <div class={navBlurBorder}>
-    <div class={navBlur}></div>
-    </div>
     <div class="contained navbar">
         <h1>Logo</h1>
         <ul>
@@ -26,26 +24,26 @@
 
 
 <style>
+
+    /* this gets added to the navbar when you scroll */
     .scrolled{
-        padding: 15px;
-        position: fixed;
-        z-index:1;
+        padding: 15px ;  
     }
-    .blur-border{
+    .scrolled::after{
+        content: '';
         position: absolute;
         top:0px;
         bottom:0px;
         right:0px;
         left:0px;
-    }
-    .blur{
-        width:100%;
-        height:100%;
         background-color: rgba(255, 255, 255, .15);
         backdrop-filter: blur(5px);
     }
+
+
+    /* normal styling */
     nav{
-        
+        z-index: 100;
         transition: padding .5s ease, background .5s ease;
         padding:20px 0; 
         color: var(--super-light);
